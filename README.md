@@ -1,51 +1,48 @@
 # add-to-pet
 
+
+Simple CLI utility to add commands to [`pet`](https://github.com/knqyf263/pet) idempotently.
+
 <!-- #region -->
-# Usage
+# Installation
 
-To run all all scripts in `core` in sequence, run
-
-```python
-add_to_pet.core.run_all()
+```bash
+pip install "git+https://github.com/astral-sh/ruff"
 ```
 
-from within Python, or
+Using `uv`:
 
+```bash
+uvx --from git+https://github.com/lukastk/add-to-pet.git 
 ```
-add-to-pet run-core
-```
-
-from the terminal.
 <!-- #endregion -->
 
 <!-- #region -->
-# Development install instructions
+# Usage
 
-## Prerequisites
+To use `add-to-pet` you must first install [`pet`](https://github.com/knqyf263/pet).
 
-- Install [uv](https://docs.astral.sh/uv/getting-started/installation/).
-- Install [direnv](https://direnv.net/) to automatically load the project virtual environment when entering it.
-    - Mac: `brew install direnv`
-    - Linux: `curl -sfL https://direnv.net/install.sh | bash`
-
-## Setting up the environment
-
-Run the following:
+## CLI
 
 ```bash
-# In the root of the repo folder
-uv sync # Installs the virtual environment at './.venv'
-direnv allow # Allows the automatic running of the script './.envrc'
-nbl install-hooks # Installs a git hooks that ensures that notebooks are added properly
+add-to-pet "echo 'Hello world'" -d "Display 'Hello world'" -t "a-tag" -t "another-tag"
 ```
 
-You are now set up to develop the codebase.
+To see a list of all available options:
 
-Further instructions:
+```bash
+add-to-pet --help
+```
 
-- To export notebooks run `nbl export`.
-- To clean notebooks run `nbl clean`.
-- To see other available commands run just `nbl`.
-- To add a new dependency run `uv add package-name`. See the the [uv documentation](https://docs.astral.sh/uv/) for more details.
-- You need to `git add` all 'twinned' notebooks for the commit to be validated by the git-hook. For example, if you add `nbs/my-nb.ipynb`, you must also add `pts/my-nb.pct.py`.
+## Module
+
+```python
+from add_to_pet import add_to_pet
+
+add_to_pet(
+    cmd="echo 'Hello world'",
+    description="Display 'Hello world'",
+    tags=["a-tag", "another-tag"]
+)
+```
 <!-- #endregion -->

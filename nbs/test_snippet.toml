@@ -9,3 +9,10 @@ command = "ls -l"
 Description = "List the contents of the current directory in long format"
 Output = ""
 Tag = [ "list", "directory",]
+
+[[Snippets]]
+command = "echo 'Hello world'"
+Description = "Display 'Hello world'"
+Output = ""
+Tag = [ "a-tag", "another-tag",]
+
