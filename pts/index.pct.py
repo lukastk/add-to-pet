@@ -53,3 +53,13 @@ import add_to_pet as proj
 #     tags=["a-tag", "another-tag"]
 # )
 # ```
+#
+# ## Standalone script
+#
+# Modify and run this script using [`uv`](https://docs.astral.sh/uv/) as follows:
+#
+# ```
+# uv run add_to_pet_example.py
+# ```
+#
+# The dependencies are all declared in the inline script metadata.
