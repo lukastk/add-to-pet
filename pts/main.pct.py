@@ -29,7 +29,7 @@ def add_to_pet(
     cmd: Annotated[str, Argument(help="The command to add to pet.")],
     description: Annotated[str, Option("-d", "--description", help="The description of the command.")] = "",
     output: Annotated[str, Option("-o", "--output", help="The output of the command.")] = "",
-    tags: Annotated[list[str], Option("-t", "--tags", help="The tags of the command.")] = [],
+    tag: Annotated[list[str], Option("-t", "--tag", help="The tags of the command.")] = [],
     snippets_path: Annotated[str|None, Option("-p", "--snippets-path", help="Path to the snippets file.")] = None,
 ): ...
 
@@ -38,7 +38,7 @@ def add_to_pet(
 cmd = "ls -l"
 description = "List the contents of the current directory in long format"
 output = ""
-tags = ["list", "directory"]
+tag = ["list", "directory"]
 snippets_path = "./test_snippet.toml"
 
 # %%
@@ -47,7 +47,7 @@ snippet = {
     "command": cmd,
     "Description": description,
     "Output": output,
-    "Tag": tags,
+    "Tag": tag,
 }
 
 # %%
