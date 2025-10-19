@@ -1,10 +1,4 @@
 
-# nblite
-add_to_pet/**/*.py 
-add_to_pet/store
-!__main__.py
-!__init__.py
-
 envname
 _proc/
 _docs/

@@ -10,49 +10,46 @@ import nblite; from nbdev.showdoc import show_doc; nblite.nbl_export()
 import add_to_pet as proj
 
 # %% [markdown]
-# # Usage
-#
-# To run all all scripts in `core` in sequence, run
-#
-# ```python
-# add_to_pet.core.run_all()
-# ```
-#
-# from within Python, or
-#
-# ```
-# add-to-pet run-core
-# ```
-#
-# from the terminal.
+# Simple CLI utility to add commands to [`pet`](https://github.com/knqyf263/pet) idempotently.
 
 # %% [markdown]
-# # Development install instructions
-#
-# ## Prerequisites
-#
-# - Install [uv](https://docs.astral.sh/uv/getting-started/installation/).
-# - Install [direnv](https://direnv.net/) to automatically load the project virtual environment when entering it.
-#     - Mac: `brew install direnv`
-#     - Linux: `curl -sfL https://direnv.net/install.sh | bash`
-#
-# ## Setting up the environment
-#
-# Run the following:
+# # Installation
 #
 # ```bash
-# # In the root of the repo folder
-# uv sync # Installs the virtual environment at './.venv'
-# direnv allow # Allows the automatic running of the script './.envrc'
-# nbl install-hooks # Installs a git hooks that ensures that notebooks are added properly
+# pip install "git+https://github.com/astral-sh/ruff"
 # ```
 #
-# You are now set up to develop the codebase.
+# Using `uv`:
 #
-# Further instructions:
+# ```bash
+# uvx --from git+https://github.com/lukastk/add-to-pet.git 
+# ```
+
+# %% [markdown]
+# # Usage
 #
-# - To export notebooks run `nbl export`.
-# - To clean notebooks run `nbl clean`.
-# - To see other available commands run just `nbl`.
-# - To add a new dependency run `uv add package-name`. See the the [uv documentation](https://docs.astral.sh/uv/) for more details.
-# - You need to `git add` all 'twinned' notebooks for the commit to be validated by the git-hook. For example, if you add `nbs/my-nb.ipynb`, you must also add `pts/my-nb.pct.py`.
+# To use `add-to-pet` you must first install [`pet`](https://github.com/knqyf263/pet).
+#
+# ## CLI
+#
+# ```bash
+# add-to-pet "echo 'Hello world'" -d "Display 'Hello world'" -t "a-tag" -t "another-tag"
+# ```
+#
+# To see a list of all available options:
+#
+# ```bash
+# add-to-pet --help
+# ```
+#
+# ## Module
+#
+# ```python
+# from add_to_pet import add_to_pet
+#
+# add_to_pet(
+#     cmd="echo 'Hello world'",
+#     description="Display 'Hello world'",
+#     tags=["a-tag", "another-tag"]
+# )
+# ```
