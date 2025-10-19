@@ -56,7 +56,7 @@ import add_to_pet as proj
 #
 # ## Standalone script
 #
-# Modify and run this script using [`uv`](https://docs.astral.sh/uv/) as follows:
+# Modify and run [this](https://github.com/lukastk/add-to-pet/blob/main/add_to_pet_example.py) script using [`uv`](https://docs.astral.sh/uv/) as follows:
 #
 # ```
 # uv run add_to_pet_example.py
