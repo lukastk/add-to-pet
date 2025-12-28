@@ -58,7 +58,7 @@ def add_to_pet(
     with open(snippets_path, "w") as f:
         f.write(toml.dumps(snippets_data))
     
-    # %% ../../../../../../../../Users/lukastk/dev/20251228_tk17t9__add-to-pet/pts/main.pct.py 10
+    # %% ../../../../../../../../Users/lukastk/dev/20251228_tk17t9__add-to-pet/pts/main.pct.py 9
     import shlex
     
     aliases_path = const.aliases_path if aliases_path is None else Path(aliases_path)

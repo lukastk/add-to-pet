@@ -79,9 +79,6 @@ else:
 with open(snippets_path, "w") as f:
     f.write(toml.dumps(snippets_data))
 
-# %%
-const.snippets_path.parent / "alias.sh"
-
 # %% [markdown]
 # Create the `alias.sh` file
 
