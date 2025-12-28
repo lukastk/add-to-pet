@@ -16,3 +16,4 @@ import add_to_pet as proj
 # %%
 #|export
 snippets_path = Path.home() / ".config/pet/snippet.toml"
+aliases_path = Path.home() / ".config/pet/aliases.sh"

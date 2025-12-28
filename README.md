@@ -7,7 +7,7 @@ Simple CLI utility to add commands to [`pet`](https://github.com/knqyf263/pet) i
 # Installation
 
 ```bash
-pip install "git+https://github.com/lukastk/add-to-pet.git "
+pip install "git+https://github.com/astral-sh/ruff"
 ```
 
 Using `uv`:

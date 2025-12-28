@@ -6,9 +6,10 @@ command = "awk '{print $1}'"
 
 [[Snippets]]
 command = "ls -l"
-Description = "List the contents of the current directory in long format"
+Description = "(lll) List the contents of the current directory in long format"
 Output = ""
 Tag = [ "list", "directory",]
+alias = "lll"
 
 [[Snippets]]
 command = "echo 'Hello world'"
