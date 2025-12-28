@@ -31,8 +31,8 @@ def add_to_pet(
     output: Annotated[str, Option("-o", "--output", help="The output of the command.")] = "",
     tag: Annotated[list[str], Option("-t", "--tag", help="The tags of the command.")] = [],
     alias: Annotated[str, Option("-a", "--alias", help="The alias of the command. Will be added to ~/.config/pet/aliases.sh, as well as to the description.")] = None,
-    snippets_path: Annotated[str|None, Option("-p", "--snippets-path", help="Path to the snippets file.")] = None,
-    aliases_path: Annotated[str|None, Option("-a", "--aliases-path", help="Path to the aliases file.")] = None,
+    snippets_path: Annotated[str|None, Option("--snippets-path", help="Path to the snippets file.")] = None,
+    aliases_path: Annotated[str|None, Option("--aliases-path", help="Path to the aliases file.")] = None,
 ): ...
 
 
