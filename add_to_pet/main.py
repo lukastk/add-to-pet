@@ -17,7 +17,7 @@ def add_to_pet(
     description: Annotated[str, Option("-d", "--description", help="The description of the command.")] = "",
     output: Annotated[str, Option("-o", "--output", help="The output of the command.")] = "",
     tag: Annotated[list[str], Option("-t", "--tag", help="The tags of the command.")] = [],
-    alias: Annotated[str, Option("-a", "--alias", help="The alias of the command. Will be added to ~/.config/pet/aliases.sh, as well as to the description.")] = None,
+    name: Annotated[str, Option("-n", "--name", help="The name of the command. Will be added to ~/.config/pet/aliases.sh, as well as to the description.")] = None,
     snippets_path: Annotated[str|None, Option("--snippets-path", help="Path to the snippets file.")] = None,
     aliases_path: Annotated[str|None, Option("--aliases-path", help="Path to the aliases file.")] = None,
 ): 
@@ -27,8 +27,8 @@ def add_to_pet(
     __all__ = ['snippet', 'snippets_path', 'snippets_data', 'duplicate_snippets', 'aliases_path', 'aliases']
     
     # %% ../../../../../../../../Users/lukastk/dev/20251228_tk17t9__add-to-pet/pts/main.pct.py 6
-    if alias:
-        _description = f"({alias}) {description}"
+    if name:
+        _description = f"({name}) {description}"
     else:
         _description = description
     
@@ -37,7 +37,7 @@ def add_to_pet(
         "Description": _description,
         "Output": output,
         "Tag": tag,
-        "alias": alias,
+        "name": name,
     }
     
     # %% ../../../../../../../../Users/lukastk/dev/20251228_tk17t9__add-to-pet/pts/main.pct.py 7
@@ -68,8 +68,8 @@ def add_to_pet(
     aliases = []
     
     for snippet in snippets_data["Snippets"]:
-        if 'alias' not in snippet: continue
-        aliases.append(f"alias {snippet['alias']}={shlex.quote(snippet['command'])}")
+        if 'name' not in snippet: continue
+        aliases.append(f"alias {snippet['name']}={shlex.quote(snippet['command'])}")
     
     aliases_path.write_text("\n".join(aliases));
     return
