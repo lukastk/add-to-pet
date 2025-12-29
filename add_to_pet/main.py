@@ -18,6 +18,7 @@ def add_to_pet(
     output: Annotated[str, Option("-o", "--output", help="The output of the command.")] = "",
     tag: Annotated[list[str], Option("-t", "--tag", help="The tags of the command.")] = [],
     name: Annotated[str, Option("-n", "--name", help="The name of the command. Will be added to ~/.config/pet/aliases.sh, as well as to the description.")] = None,
+    interactive: Annotated[bool, Option("-i", "--interactive", help="Whether to run the command interactively.")] = False,
     snippets_path: Annotated[str|None, Option("--snippets-path", help="Path to the snippets file.")] = None,
     aliases_path: Annotated[str|None, Option("--aliases-path", help="Path to the aliases file.")] = None,
 ): 
@@ -27,6 +28,12 @@ def add_to_pet(
     __all__ = ['snippet', 'snippets_path', 'snippets_data', 'duplicate_snippets', 'aliases_path', 'aliases']
     
     # %% ../../../../../../../../Users/lukastk/dev/20251228_tk17t9__add-to-pet/pts/main.pct.py 6
+    if interactive:
+        name = input("Name: ") if name is None else name
+        description = input("Description: ") if not description else description
+        tag = [t.strip() for t in input("Tags (comma separated): ").split(",")] if not tag else tag
+    
+    # %% ../../../../../../../../Users/lukastk/dev/20251228_tk17t9__add-to-pet/pts/main.pct.py 7
     if name:
         _description = f"({name}) {description}"
     else:
@@ -40,7 +47,7 @@ def add_to_pet(
         "name": name,
     }
     
-    # %% ../../../../../../../../Users/lukastk/dev/20251228_tk17t9__add-to-pet/pts/main.pct.py 7
+    # %% ../../../../../../../../Users/lukastk/dev/20251228_tk17t9__add-to-pet/pts/main.pct.py 8
     snippets_path = const.snippets_path if snippets_path is None else Path(snippets_path)
     snippets_data = toml.loads(open(snippets_path).read())
     if 'Snippets' not in snippets_data:
@@ -58,7 +65,7 @@ def add_to_pet(
     with open(snippets_path, "w") as f:
         f.write(toml.dumps(snippets_data))
     
-    # %% ../../../../../../../../Users/lukastk/dev/20251228_tk17t9__add-to-pet/pts/main.pct.py 9
+    # %% ../../../../../../../../Users/lukastk/dev/20251228_tk17t9__add-to-pet/pts/main.pct.py 10
     import shlex
     
     aliases_path = const.aliases_path if aliases_path is None else Path(aliases_path)

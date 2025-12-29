@@ -31,6 +31,7 @@ def add_to_pet(
     output: Annotated[str, Option("-o", "--output", help="The output of the command.")] = "",
     tag: Annotated[list[str], Option("-t", "--tag", help="The tags of the command.")] = [],
     name: Annotated[str, Option("-n", "--name", help="The name of the command. Will be added to ~/.config/pet/aliases.sh, as well as to the description.")] = None,
+    interactive: Annotated[bool, Option("-i", "--interactive", help="Whether to run the command interactively.")] = False,
     snippets_path: Annotated[str|None, Option("--snippets-path", help="Path to the snippets file.")] = None,
     aliases_path: Annotated[str|None, Option("--aliases-path", help="Path to the aliases file.")] = None,
 ): ...
@@ -41,9 +42,17 @@ cmd = "ls -l"
 description = "List the contents of the current directory in long format"
 output = ""
 tag = ["list", "directory"]
+name = "lll"
+interactive = False
 snippets_path = "./test_snippet.toml"
 aliases_path = "./test_aliases.sh"
-name = "lll"
+
+# %%
+#|export
+if interactive:
+    name = input("Name: ") if name is None else name
+    description = input("Description: ") if not description else description
+    tag = [t.strip() for t in input("Tags (comma separated): ").split(",")] if not tag else tag
 
 # %%
 #|export
