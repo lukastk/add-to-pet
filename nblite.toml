@@ -5,6 +5,7 @@ pts -> lib
 
 [cl.lib]
 path="add_to_pet"
+format="module"
 
 [cl.nbs]
 format="ipynb"

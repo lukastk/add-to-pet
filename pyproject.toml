@@ -26,3 +26,4 @@ dev = [
 
 [project.scripts]
 add-to-pet = "add_to_pet.app:app"
+add-to-pet-regenerate-aliases = "add_to_pet.regenerate_aliases:regenerate_aliases_app"

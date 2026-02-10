@@ -1,3 +1,11 @@
+# ---
+# jupyter:
+#   kernelspec:
+#     display_name: Python 3
+#     language: python
+#     name: python3
+# ---
+
 # %% [markdown]
 # # main
 
@@ -21,7 +29,6 @@ import json
 from add_to_pet import const
 from add_to_pet.app import app
 
-
 # %%
 #|set_func_signature
 @app.command()
@@ -35,7 +42,6 @@ def add_to_pet(
     snippets_path: Annotated[str|None, Option("--snippets-path", help="Path to the snippets file.")] = None,
     aliases_path: Annotated[str|None, Option("--aliases-path", help="Path to the aliases file.")] = None,
 ): ...
-
 
 # %%
 cmd = "ls -l"
