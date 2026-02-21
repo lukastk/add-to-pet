@@ -21,7 +21,7 @@ import nblite; from nbdev.showdoc import show_doc; nblite.nbl_export()
 #|top_export
 import typer
 from typer import Argument, Option
-from typing_extensions import Annotated
+from typing import Annotated
 from pathlib import Path
 import toml
 import json

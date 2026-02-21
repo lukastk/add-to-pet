@@ -2,7 +2,7 @@
 
 import typer
 from typer import Option
-from typing_extensions import Annotated
+from typing import Annotated
 from pathlib import Path
 import toml
 import shlex
